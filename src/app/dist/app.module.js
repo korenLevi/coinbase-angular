@@ -29,6 +29,8 @@ var angular2_chartjs_1 = require("angular2-chartjs");
 // import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 var auth_modal_component_1 = require("./cmps/auth-modal/auth-modal.component");
 var user_page_component_1 = require("./pages/user-page/user-page.component");
+var contact_edit_component_1 = require("./cmps/contact-edit/contact-edit.component");
+var moves_component_1 = require("./cmps/moves/moves.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -45,6 +47,8 @@ var AppModule = /** @class */ (function () {
                 // AuthPageComponent,
                 auth_modal_component_1.AuthModalComponent,
                 user_page_component_1.UserPageComponent,
+                contact_edit_component_1.ContactEditComponent,
+                moves_component_1.MovesComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,

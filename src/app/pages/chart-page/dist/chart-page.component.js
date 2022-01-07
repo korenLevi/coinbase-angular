@@ -45,19 +45,20 @@ exports.__esModule = true;
 exports.ChartPageComponent = void 0;
 var core_1 = require("@angular/core");
 var chart_js_1 = require("chart.js");
-// ChartJS.register(
-//   CategoryScale,
-//   LinearScale,
-//   PointElement,
-//   LineElement,
-//   Title,
-//   Tooltip,
-//   Legend
-// );
+// import { LineControllerDatasetOptions } from 'chart.js'
+// import {
+//   ChartComponent,
+//   ApexAxisChartSeries,
+//   ApexChart,
+//   ApexXAxis,
+//   ApexDataLabels,
+//   ApexTitleSubtitle,
+//   ApexStroke,
+//   ApexGrid,
+//   ApexAnnotations
+// } from "ng-apexcharts";
 chart_js_1.Chart.register(chart_js_1.LineController, chart_js_1.LineElement, chart_js_1.PointElement, chart_js_1.LinearScale, chart_js_1.Title, chart_js_1.CategoryScale);
 var ChartPageComponent = /** @class */ (function () {
-    // @ViewChild("chart") chart: ChartComponent;
-    // public chartOptions: Partial<ChartOptions>;
     function ChartPageComponent(bitcoinService) {
         this.bitcoinService = bitcoinService;
         this.options = {
@@ -65,18 +66,6 @@ var ChartPageComponent = /** @class */ (function () {
             maintainAspectRatio: false
         };
     }
-    // data = {
-    //   labels: ["January", "February", "March", "April", "May", "June", "July"],
-    //   datasets: [
-    //     {
-    //       label: "My First dataset",
-    //       data: [65, 59, 80, 81, 56, 55, 40]
-    //     }
-    //   ]
-    // };
-    // data:Object = this.loadChart()
-    // console.log(data);
-    //  ctx = document.getElementById('myChart').getContext('2d');
     ChartPageComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, Promise, function () {
             var _this = this;
@@ -85,48 +74,13 @@ var ChartPageComponent = /** @class */ (function () {
                 this.bitcoinService.getMarketPrice().subscribe(function (answer) {
                     console.log(answer, typeof answer);
                     _this.answer = answer;
-                    _this.chartData = _this.loadChart2();
-                    // const ctx = document.getElementById('myChart')
-                    // const container = document.querySelector('container')
-                    //  const ctx = container.childNodes[0]
-                    // const ctx = document.getElementsByTagName('canvas')[0].getContext('2d')
-                    // console.log(ctx);
-                    // const myChart = new ChartJS(ctx,this.chartData)
-                    // console.log(this.chartData.data.labels.length);
+                    _this.chartData = _this.loadChart();
                 });
                 return [2 /*return*/];
             });
         });
     };
-    ChartPageComponent.prototype.loadChart2 = function () {
-        // const ctx = document.getElementsByTagName('canvas')[0].getContext('2d')
-        // console.log(ctx);
-        // console.log(this.answer,);
-        // const myChart =
-        //  return new ChartJS(ctx, {
-        //   type: 'line',
-        //   data: {
-        //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        //     datasets: [{
-        //       label: '# of Votes',
-        //       data: this.answer.map(item => item.y),
-        //       backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        //       borderColor: 'rgba(255, 99, 132, 1)'
-        //     }]
-        //   },
-        //   options: {
-        //     responsive: true,
-        //     plugins: {
-        //       legend: {
-        //         position: 'top',
-        //       },
-        //       title: {
-        //         display: true,
-        //         text: 'Chart.js Line Chart'
-        //       }
-        //     }
-        //   }
-        // })
+    ChartPageComponent.prototype.loadChart = function () {
         return {
             type: 'line',
             data: {
@@ -161,122 +115,9 @@ var ChartPageComponent = /** @class */ (function () {
                 }
             }
         };
-        // this.chartData.data = myChart.data
-        // this.chartData = myChart
-        // this.chartData.options = myChart.options
-        // this.chartData.type = myChart.type
-        // console.log(this.chartData);
-        // .attached
-        // myChart.render()
     };
     ChartPageComponent.prototype.getDates = function () {
         return this.answer.map(function (item) { return new Date(item.x * 1000).toLocaleDateString(); });
-    };
-    ChartPageComponent.prototype.loadChart = function () {
-        var labels = this.answer.map(function (item) { return new Date(item.x * 1000).toLocaleDateString(); });
-        var data = {
-            labels: labels,
-            datasets: [
-                {
-                    label: 'Bitcoin',
-                    data: this.answer.map(function (item) { return item.y; }),
-                    borderColor: 'rgb(255, 99, 132)',
-                    backgroundColor: 'rgba(255, 99, 132, 0.5)'
-                },
-            ]
-        };
-        // const ctx = document.getElementById('myChart')
-        // const ctx = document.querySelector('.myChart')
-        // const ctx = document.getElementsByTagName('canvas')[0].getContext('2d')
-        //  console.log(ctx);
-        // var myChart = new ChartJS("myChart", {
-        //   type: 'line',
-        //   data: {
-        //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        //     datasets: [{
-        //       label: '# of Votes',
-        //       data: this.answer.map(item => item.y),
-        //       backgroundColor: 
-        //       // [
-        //         'rgba(255, 99, 132, 0.2)',
-        //         // 'rgba(54, 162, 235, 0.2)',
-        //         // 'rgba(255, 206, 86, 0.2)',
-        //         // 'rgba(75, 192, 192, 0.2)',
-        //         // 'rgba(153, 102, 255, 0.2)',
-        //         // 'rgba(255, 159, 64, 0.2)'
-        //       // ],
-        //       borderColor:
-        //       //  [
-        //         'rgba(255, 99, 132, 1)'
-        //         // 'rgba(54, 162, 235, 1)',
-        //         // 'rgba(255, 206, 86, 1)',
-        //         // 'rgba(75, 192, 192, 1)',
-        //         // 'rgba(153, 102, 255, 1)',
-        //         // 'rgba(255, 159, 64, 1)'
-        //       // ]
-        //     ,
-        //       borderWidth: 1
-        //     }]
-        //   },
-        //   options: {
-        //     scales: {
-        //       y: {
-        //         beginAtZero: true
-        //       }
-        //     }
-        //   }
-        // });
-        var d = {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                    label: '# of Votes',
-                    data: this.answer.map(function (item) { return item.y; }),
-                    backgroundColor: 
-                    // [
-                    'rgba(255, 99, 132, 0.2)',
-                    // 'rgba(54, 162, 235, 0.2)',
-                    // 'rgba(255, 206, 86, 0.2)',
-                    // 'rgba(75, 192, 192, 0.2)',
-                    // 'rgba(153, 102, 255, 0.2)',
-                    // 'rgba(255, 159, 64, 0.2)'
-                    // ],
-                    borderColor: 
-                    //  [
-                    'rgba(255, 99, 132, 1)'
-                    // 'rgba(54, 162, 235, 1)',
-                    // 'rgba(255, 206, 86, 1)',
-                    // 'rgba(75, 192, 192, 1)',
-                    // 'rgba(153, 102, 255, 1)',
-                    // 'rgba(255, 159, 64, 1)'
-                    // ]
-                    ,
-                    borderWidth: 1
-                }]
-        };
-        return {
-            type: 'line',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                        label: '# of Votes',
-                        data: this.answer.map(function (item) { return item.y; }),
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgba(255, 99, 132, 1)'
-                    }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top'
-                    },
-                    title: {
-                        display: true,
-                        text: 'Chart.js Line Chart'
-                    }
-                }
-            }
-        };
     };
     ChartPageComponent = __decorate([
         core_1.Component({
@@ -288,37 +129,3 @@ var ChartPageComponent = /** @class */ (function () {
     return ChartPageComponent;
 }());
 exports.ChartPageComponent = ChartPageComponent;
-// var myChart = new ChartJS("myChart", {
-//   type: 'bar',
-//   data: {
-//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//       datasets: [{
-//           label: '# of Votes',
-//           data: this.answer.map(item => item.y),
-//           backgroundColor: [
-//               'rgba(255, 99, 132, 0.2)',
-//               'rgba(54, 162, 235, 0.2)',
-//               'rgba(255, 206, 86, 0.2)',
-//               'rgba(75, 192, 192, 0.2)',
-//               'rgba(153, 102, 255, 0.2)',
-//               'rgba(255, 159, 64, 0.2)'
-//           ],
-//           borderColor: [
-//               'rgba(255, 99, 132, 1)',
-//               'rgba(54, 162, 235, 1)',
-//               'rgba(255, 206, 86, 1)',
-//               'rgba(75, 192, 192, 1)',
-//               'rgba(153, 102, 255, 1)',
-//               'rgba(255, 159, 64, 1)'
-//           ],
-//           borderWidth: 1
-//       }]
-//   },
-//   options: {
-//       scales: {
-//           y: {
-//               beginAtZero: true
-//           }
-//       }
-//   }
-// });
