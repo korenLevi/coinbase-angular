@@ -1,0 +1,105 @@
+@mixin for-mobile-layout {
+    @media (max-width: $mobile-breakpoint) {
+        @content;
+    }
+}
+
+@mixin for-tablet-layout {
+    @media (max-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin for-normal-layout {
+    @media (max-width: $normal-breakpoint) {
+        @content;
+    }
+}
+
+@mixin for-wide-layout {
+    @media (max-width: $wide-breakpoint) {
+        @content;
+    }
+}
+
+
+
+/* Media  Mixins */
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+        pointer-events: none;
+    }
+
+    &>img,
+    &>iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+    }
+// >canvas{
+//     height: 500px;
+// }
+    >img {
+        object-fit: cover;
+    }
+}
+
+// Mixin for removing hover effects on iphone screen
+@mixin hover-supported {
+    @media not all and (pointer: coarse) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin quotes {
+    &::before {
+        content: open-quote;
+    }
+    &::after {
+        content: close-quote;
+    }
+}
+
+$mobile-breakpoint: 600px;
+$tablet-breakpoint: 768px;
+$normal-breakpoint: 900px;
+$wide-breakpoint: 1080px;
+
+.container {
+    max-width: $normal-breakpoint;
+    // width: 1500px !important;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding: 20px;
+
+
+    @include for-mobile-layout {
+        max-width: initial;
+    }
+
+    @include for-tablet-layout {
+        max-width: $mobile-breakpoint;
+    }
+
+    @include for-normal-layout {
+        max-width: $tablet-breakpoint;
+    }
+
+    @include for-wide-layout {
+        max-width: $normal-breakpoint;
+    }
+}

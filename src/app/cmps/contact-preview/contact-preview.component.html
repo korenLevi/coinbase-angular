@@ -1,0 +1,16 @@
+<!-- <p>contact-preview works!</p> -->
+<!-- <span>{{isMoveClick}}</span> -->
+<mat-list-option (click)="onContactEdit()" class="contact-preview">
+    <img matListAvatar src="../../../assets/icons/contact.png" alt="...">
+    <h3 matLine> {{contact.name}} </h3>
+    <p matLine>
+        <span> {{contact.email}} </span>
+        <span class="demo-2"> -- {{contact.phone}} </span>
+    </p>
+</mat-list-option>
+<contact-edit  (onClose)="onCloseModal($event)" (onMove)="onMoveModal($event)" *ngIf="isContactEdit" [contact]="contact"></contact-edit>
+<moves (onClose)="onCloseModal($event)"  *ngIf="isMoveClick" [contact]="contact"></moves>
+
+<style>
+   
+</style>

@@ -1,0 +1,194 @@
+<!-- <p>auth-modal works!</p> -->
+
+<div class="auth-modal">
+    <div *ngIf="!isSigningIn;else signIn" class="auth-modal-content">
+        <header class="modal-header">
+            <span>Create account</span>
+            <svg (click)="onClose.emit()" class="close-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                <g>
+                    <polygon points="18.096 19.174 19.497 17.747 1.7 .286 .3 1.714"></polygon>
+                    <polygon points="19.497 1.714 18.096 .286 .3 17.747 1.7 19.174"></polygon>
+                </g>
+            </svg>
+        </header>
+        <div class="modal-content">
+
+            <div class="signup-form">
+                <p>Required fields have an asterisk: *</p>
+
+                <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+                    <div class="names">
+                        <div class="fname">
+                            <label for="fname">First name*</label>
+                            <div class="input-container">
+                                <input ngModel #fname="ngModel" type="text" name="fname" placeholder="First name">
+                            </div>
+                        </div>
+                        <div class="lname input-wrapper">
+                            <label for="lname">Last name*</label>
+                            <div class="input-container">
+                                <input ngModel #lname="ngModel" type="text" name="lname" placeholder="Last name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email marg-btn">
+                        <label for="email">Email*</label>
+                        <div class="input-container">
+                            <input ngModel #email="ngModel" type="email" placeholder="Email" name="email">
+                        </div>
+                    </div>
+                    <div class="password marg-btn">
+                        <label for="password">Password*</label>
+                        <div class="input-container">
+                            <input ngModel #password="ngModel" required minlength="6" type="password"
+                                placeholder="Choose password" name="password">
+                        </div>
+                    </div>
+
+                    <div class="check-box">
+                        <!-- <label for="check"></label> -->
+                        <input required ngModel class="check-box-input" name="check" type="checkbox">
+                        <!-- <button role="checkbox" class="check-box" aria-checked="false"></button> -->
+                        <p>I certify that I am 18 years of age or older, and agree to the
+                            <a href="" style="white-space: pre-line">User Agreement</a> and <a href="">Privacy
+                                Policy</a>.
+                        </p>
+                    </div>
+
+                    <button type="submit" [disabled]="form.invalid" class="create-btn">Create account</button>
+
+                    <p (click)="isSigningIn=!isSigningIn" id="signin-btn"><a>Sign in</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <ng-template #signIn>
+
+
+        <div class="auth-modal-content">
+            <header class="modal-header">
+                <span>Sign in</span>
+                <svg (click)="onClose.emit()" class="close-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <polygon points="18.096 19.174 19.497 17.747 1.7 .286 .3 1.714"></polygon>
+                        <polygon points="19.497 1.714 18.096 .286 .3 17.747 1.7 19.174"></polygon>
+                    </g>
+                </svg>
+            </header>
+            <div class="modal-content">
+
+                <div class="signup-form">
+                    <p>Required fields have an asterisk: *</p>
+
+                    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+                        <!-- <div class="names">
+                            <div class="fname">
+                                <label for="fname">First name*</label>
+                                <div class="input-container">
+                                    <input ngModel #fname="ngModel" type="text" name="fname" placeholder="First name">
+                                </div>
+                            </div>
+                            <div class="lname input-wrapper">
+                                <label for="lname">Last name*</label>
+                                <div class="input-container">
+                                    <input ngModel #lname="ngModel" type="text" name="lname" placeholder="Last name">
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="email marg-btn">
+                            <label for="email">Email*</label>
+                            <div class="input-container">
+                                <input ngModel #email="ngModel" type="email" placeholder="Email" name="email">
+                            </div>
+                        </div>
+                        <div class="password marg-btn">
+                            <label for="password">Password*</label>
+                            <div class="input-container">
+                                <input ngModel #password="ngModel" required minlength="6" type="password"
+                                    placeholder="Password" name="password">
+                            </div>
+                        </div>
+
+                        <!-- <div class="check-box">
+                            <input required ngModel class="check-box-input" name="check" type="checkbox">
+                            <p>I certify that I am 18 years of age or older, and agree to the
+                                <a href="" style="white-space: pre-line">User Agreement</a> and <a href="">Privacy
+                                    Policy</a>.
+                            </p>
+                        </div> -->
+
+                        <button type="submit" [disabled]="form.invalid" class="create-btn">Sign in</button>
+
+                        <p (click)="isSigningIn=!isSigningIn" id="signin-btn"><a>Sign up</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+<!-- [disabled]="form.userAgreement" -->
+
+
+
+<!-- <div class="auth-modal">
+    <div class="auth-modal-content">
+        <header class="modal-header">
+            <span>Create account</span>
+        </header>
+        <div class="modal-content">
+
+            <div class="signup-form">
+                <p>Required fields have an asterisk: *</p>
+
+                <form [formGroup]="form">
+                    <div class="names">
+                        <div class="fname">
+                            <label for="fname">First name*</label>
+                            <div class="input-container">
+                                <input formControlName="fname" type="text" name="fname" placeholder="First name">
+                            </div>
+                        </div>
+                        <div class="lname input-wrapper">
+                            <label for="lname">Last name*</label>
+                            <div class="input-container">
+                                <input formControlName="lname" type="text" name="lname" placeholder="Last name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email marg-btn">
+                        <label for="email">Email*</label>
+                        <div class="input-container">
+                            <input formControlName="email" type="email" placeholder="Email" name="email">
+                        </div>
+                    </div>
+                    <div class="password marg-btn">
+                        <label for="password">Password*</label>
+                        <div class="input-container">
+                            <input required minlength="6" formControlName="password" type="password" placeholder="Choose password" name="password">
+                        </div>
+                    </div>
+
+                    <div class="check-box">
+                        <input formControlName="userAgreement" class="check-box-input" name="check" type="checkbox" >
+                        <p>I certify that I am 18 years of age or older, and agree to the
+                            <a href="" style="white-space: pre-line">User Agreement</a> and <a href="">Privacy Policy</a>.</p>
+                    </div>
+
+                    <button  [disabled]="form.invalid" class="create-btn" disabled>Create account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->

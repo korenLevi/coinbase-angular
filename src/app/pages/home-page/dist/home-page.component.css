@@ -1,0 +1,78 @@
+.content-header {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  flex-direction: row;
+  color: #0008ff;
+}
+
+.main-logo {
+  margin: 8px 8px 8px 0;
+}
+
+.content-main {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.home-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-svg {
+  height: 600px;
+  width: auto;
+}
+
+@media (max-width: 650px) {
+  .phone-svg {
+    display: none;
+  }
+}
+.user-container {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+}
+
+.main-text {
+  font-size: 62px;
+  font-weight: 800;
+  line-height: 1.15;
+  max-width: 425px;
+  margin: 8px 16px;
+}
+
+.home-page-content-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-top: 100px;
+  padding-bottom: 111px;
+  flex: 1 1 0%;
+}
+
+.content-continer {
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+  margin: 0px auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  overflow: hidden;
+  max-width: 1142px;
+  padding-left: 56px;
+  padding-right: 56px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 1.4;
+}

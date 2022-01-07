@@ -1,0 +1,78 @@
+.toolbar {
+  max-width: 1180px;
+  margin: 0px auto;
+  display: flex;
+  align-items: stretch;
+  padding: 0px 20px;
+  border-bottom: 1px solid #eceff1;
+  height: 58px;
+  background-color: white;
+}
+
+.toolbar img {
+  margin: 0 10px;
+}
+
+.toolbar #twitter-logo {
+  height: 40px;
+  margin: 0 8px;
+}
+
+.toolbar #youtube-logo {
+  height: 40px;
+  margin: 0 16px;
+}
+
+.toolbar #twitter-logo:hover,
+.toolbar #youtube-logo:hover {
+  opacity: 0.8;
+}
+
+.auth-btn {
+  position: relative;
+  width: auto;
+  margin: 0 10px;
+  height: 36px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 14px;
+  font-family: Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  border: 1px solid #0052ff;
+  background-color: #0052ff;
+}
+
+.auth-btn:hover {
+  background-color: #0841bd;
+}
+
+.router-actions {
+  display: flex;
+  align-items: center;
+}
+.router-actions a {
+  margin: 0 10px;
+}
+.router-actions a:nth-child(1) {
+  margin: 0 4px;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  padding-bottom: 3px;
+  flex: 2 1 0%;
+}
+.title-container .title-header {
+  text-decoration: none;
+  cursor: pointer;
+  color: #0052ff;
+}
+.title-container .title-header img {
+  position: relative;
+  max-height: 20px;
+  border-style: none;
+}

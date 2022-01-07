@@ -1,0 +1,10 @@
+<!-- <p>contact-list works!</p> -->
+<!-- <mat-list-option *ngFor="let contact of contacts" class="contact-preview" >
+    <img matListAvatar src="../../../assets/icons/contact.png" alt="...">
+    <h3 matLine> {{contact.name}} </h3>
+    <p matLine>
+        <span> {{contact.email}} </span>
+        <span class="demo-2"> -- {{contact.phone}} </span>
+    </p>
+</mat-list-option> -->
+<contact-preview  *ngFor="let contact of contacts" [contact]="contact"></contact-preview>

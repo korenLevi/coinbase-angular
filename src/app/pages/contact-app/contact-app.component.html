@@ -1,0 +1,74 @@
+<!-- <p>contact-app works!</p> -->
+
+<section class="contacts-app">
+    <!-- <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Clearable input</mat-label>
+        <input matInput type="text" [(ngModel)]="filterBy">
+        <button *ngIf="filterBy" matSuffix mat-icon-button aria-label="Clear" (click)="filterBy=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field> -->
+
+    <header class="actions-header">
+
+        <div class="input-container">
+            <input (input)="filterContacts()" class="filter-input" placeholder="Search.." type="text"
+                [(ngModel)]="filterBy" />
+        </div>
+        <a (click)="isContactAdding =!isContactAdding" class="add-contact-btn">
+            <img src="https://talbenavi.github.io/appsus/assets/img/plus.png" alt="" />
+        </a>
+    </header>
+
+    <!-- <textarea pInputTextarea [(ngModel)]="filterBy"></textarea> -->
+    <!-- <div class="p-input-filled">
+        <input type="text" pInputText [(ngModel)]="filterBy">
+    </div>    -->
+    <mat-selection-list [multiple]="false">
+        <!-- <mat-list-option *ngFor="let contact of contacts" class="contact-preview">
+            <img matListAvatar src="../../../assets/icons/contact.png" alt="...">
+            <h3 matLine> {{contact.name}} </h3>
+            <p matLine>
+                <span> {{contact.email}} </span>
+                <span class="demo-2"> -- {{contact.phone}} </span>
+            </p>
+        </mat-list-option> -->
+        <contact-list [contacts]="contacts$|async"></contact-list>
+    </mat-selection-list>
+</section>
+
+
+<contact-edit (onClose)="onCloseModal($event)" *ngIf="isContactAdding" [isContactAdding]="isContactAdding"></contact-edit>
+
+<!-- <p-orderList [value]="contacts" [(selection)]="contacts">
+    <ng-template let-contact pTemplate="item">
+        <div>
+            <img src="../../../assets/icons/contact.png" style="display:inline-block;margin:2px 0 2px 2px" width="48">
+            <div style="font-size:14px;float:right;margin:15px 5px 0 0">
+                <span> {{contact.email}} </span>
+                <span class="demo-2"> -- {{contact.phone}} </span>
+                {{contact.name}} - {{contact.email}} - {{contact.phone}}
+            </div>
+        </div>
+    </ng-template>
+</p-orderList> -->
+
+<!-- <p-orderList [value]="contacts" [listStyle]="{'height':'auto'}" header="List of contacts" filterBy="name" filterPlaceholder="Filter by name" >
+    <ng-template let-contact pTemplate="item">
+        <div class="contact-item">
+            <div class="contact-list-detail">
+                <h5 class="p-mb-2">{{contact.name}}</h5>
+                <i class="pi pi-tag contact-category-icon"></i>
+                <span class="contact-category">{{contact.email}}</span>
+                <h6 class="p-mb-2">{{contact.phone}}</h6>
+            </div>
+            <div class="contact-list-action">
+                <h6 class="p-mb-2">{{contact.phone}}</h6>
+                <span [class]="'contact-badge status-' + contact.inventoryStatus.toLowerCase()">{{contact.name}}</span>
+            </div>
+        </div>
+    </ng-template>
+</p-orderList> -->
+<style lang="scss" scoped>
+
+</style>

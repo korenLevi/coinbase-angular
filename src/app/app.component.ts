@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-
+// import 'material-design-icons'
+import 'animate.css';
+import material from 'material-design-icons'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
