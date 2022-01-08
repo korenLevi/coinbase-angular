@@ -72,7 +72,6 @@ var ChartPageComponent = /** @class */ (function () {
             return __generator(this, function (_a) {
                 // const b = this.bitcoinService.getMarketPrice()
                 this.bitcoinService.getMarketPrice().subscribe(function (answer) {
-                    console.log(answer, typeof answer);
                     _this.answer = answer;
                     _this.chartData = _this.loadChart();
                 });

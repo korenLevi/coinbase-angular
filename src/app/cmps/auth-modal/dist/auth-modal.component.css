@@ -12,7 +12,6 @@
 .auth-modal .auth-modal-content {
   height: auto;
   margin: 100px 0px 24px;
-  width: 480px;
   border: none;
   border-radius: 4px;
   background-color: white;
@@ -193,4 +192,14 @@
   text-decoration: none;
   transition: color 0.25s ease 0s;
   background-color: transparent;
+}
+@media (max-width: 500px) {
+  .auth-modal .auth-modal-content {
+    width: 90vw;
+    margin-top: 50px;
+  }
+  .auth-modal .crpyto-btn-container {
+    margin-left: 10px;
+    margin-right: 0;
+  }
 }

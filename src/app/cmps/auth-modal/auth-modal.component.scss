@@ -9,12 +9,12 @@
   // overflow: scroll;
   opacity: 1;
   transition: opacity 150ms ease 0s;
-
+ 
   .auth-modal-content {
     height: auto;
     margin: 100px 0px 24px;
     
-    width: 480px;
+    // width: 480px;
     border: none;
     border-radius: 4px;
     // background-color: rgb(var(255,255,255));
@@ -246,6 +246,17 @@
           // white-space: pre-wrap
         }
       }
+    }
+  }
+  @media (max-width: 500px) {
+    .auth-modal-content{
+      width: 90vw;
+      // margin: 50px 0px 24px;     
+      margin-top: 50px; 
+    }
+    .crpyto-btn-container{
+      margin-left: 10px;
+      margin-right: 0;
     }
   }
 

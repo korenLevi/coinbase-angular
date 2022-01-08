@@ -55,7 +55,6 @@ export class ChartPageComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     // const b = this.bitcoinService.getMarketPrice()
     this.bitcoinService.getMarketPrice().subscribe(answer => {
-      console.log(answer, typeof answer);
       this.answer = answer
       this.chartData = this.loadChart()
       

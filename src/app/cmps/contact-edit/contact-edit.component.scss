@@ -274,11 +274,7 @@
   }
 
 }
-@media (max-width: 500px) {
-  .auth-modal-content{
-    width: 350px;      
-  }
-}
+
 @media (min-width: 600px) {
   .auth-modal-content{
     min-width: 430px;       
@@ -289,20 +285,30 @@
   display: flex;
   align-items: center;
   margin-right: 10px;
-
   .crpyto-btn {
+    position: relative;
     border-radius: 100px;
-    height: 100px;
+    height: 85px;
     color: white;
-    /* width: 100%; */
-    width: 100px;
+    width: 85px;
+    /* width: max-content; */
+    max-width: 100px;
+    /* padding: 25px; */
     border: 3px solid #0052ff;
     background-color: #0052ff;
     border: 1px solid #ffffff;
     font-family: "Segoe UI";
-    font-size: 20px;
+    font-size: 1.2em;
     font-weight: 600;
     cursor: pointer;
-    // background-color: white;
+  }
+}
+@media (max-width: 500px) {
+  .auth-modal-content{
+    width: 350px;      
+  }
+  .crpyto-btn-container{
+    margin-left: 10px;
+    margin-right: 0;
   }
 }
